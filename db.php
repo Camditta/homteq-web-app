@@ -1,7 +1,7 @@
 <?php
 $dbhost = 'phpmyadmin.ecs.westminster.ac.uk';
 $dbuser = 'w1839663';
-$dbpass = 'Flau0vEj233Q';
+$dbpass = 'PRIVATE';
 $dbname = 'w1839663_0';
 //create a DB connection
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
