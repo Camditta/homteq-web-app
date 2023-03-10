@@ -1,14 +1,14 @@
 DROP TABLE IF EXISTS Product;
 CREATE TABLE Product (
- prodId INT AUTO_INCREMENT,
- prodName VARCHAR(200) NOT NULL,
- prodPicNameSmall VARCHAR(200) NOT NULL,
- prodPicNameLarge VARCHAR(200) NOT NULL,
- prodDescripShort VARCHAR(1000) ,
- prodDescripLong VARCHAR(2000) ,
- prodPrice DECIMAL(8,2) NOT NULL DEFAULT '0.00',
- prodQuantity INT NOT NULL DEFAULT '100',
- CONSTRAINT p_pid_pk PRIMARY KEY (prodId)
+    prodId INT AUTO_INCREMENT,
+    prodName VARCHAR(200) NOT NULL,
+    prodPicNameSmall VARCHAR(200) NOT NULL,
+    prodPicNameLarge VARCHAR(200) NOT NULL,
+    prodDescripShort VARCHAR(1000) ,
+    prodDescripLong VARCHAR(2000) ,
+    prodPrice DECIMAL(8,2) NOT NULL DEFAULT '0.00',
+    prodQuantity INT NOT NULL DEFAULT '100',
+    CONSTRAINT p_pid_pk PRIMARY KEY (prodId)
 ) ;
 
 INSERT INTO Product
@@ -68,3 +68,35 @@ Breathtaking picture quality stream in 4K, Dolby Vision , and HDR10+ with sharp 
 Voice remote power up your TV, adjust the volume, and control your streaming with one voice remote.
 Hides behind your TV Plug it in, connect to the internet, and start streaming. It is that simple. A wide range of streaming platforms such as Netflix, Disney+, Youtube, Apple TV and many more.',
 39.99, 98);
+
+DROP TABLE IF EXISTS Users;
+CREATE TABLE Users (
+    userId INT AUTO_INCREMENT,
+    userType VARCHAR(1) NOT NULL,
+    userFName VARCHAR(100) NOT NULL,
+    userSName VARCHAR(100) NOT NULL,
+    userAddress VARCHAR(200) NOT NULL,
+    userPostCode VARCHAR(20) NOT NULL,
+    userTelNo VARCHAR(20) NOT NULL,
+    userEmail VARCHAR(100) NOT NULL UNIQUE,
+    userPassword VARCHAR(100) NOT NULL,
+    CONSTRAINT u_uid_pk PRIMARY KEY (userId)
+) ;
+
+INSERT INTO Users 
+(userType, userFName, userSName, userAddress, userPostCode, userTelNo
+, userEmail, userPassword) VALUES 
+('C', 'Devon','Lockwood', '243 Pine Road', 'RM289E', '07523628827', 'devonlockwood@gmail.com',
+'devon808');
+
+INSERT INTO Users 
+(userType, userFName, userSName, userAddress, userPostCode, userTelNo
+, userEmail, userPassword) VALUES 
+('A', 'Lucy', 'Phillips', '56 Fennock Avenue', 'IG74SR', '07826398810',
+'lucyphillips@homteq-support.co.uk', 'Phillips1987#');
+
+INSERT INTO Users 
+(userType, userFName, userSName, userAddress, userPostCode, userTelNo
+, userEmail, userPassword) VALUES 
+('C', 'Christopher', 'Jenkins', '8 Yew Way', 'RE87384', '07438634197',
+'christhebest@btinternet.com', '1979Bear');
