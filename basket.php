@@ -1,12 +1,12 @@
 <?php
 session_start();
 include("db.php");
-
 $pagename="Smart Basket";
 echo "<link rel=stylesheet type=text/css href=mystylesheet.css>";
 echo "<title>".$pagename."</title>";
 echo "<body>";
 include ("headfile.html");
+include ("detectlogin.php");
 echo "<h4>".$pagename."</h4>";
 //if the value of the product id to be deleted (which was posted through the hidden field) is set
 if (isset($_POST['del_prodid']))
@@ -83,10 +83,22 @@ echo "<td><b>&pound".number_format($total,2)."</b></td>";
 echo "</tr>";
 echo "</table>";
 
-echo "<br><p class='updateInfo'><a href='clearbasket.php'>CLEAR BASKET</a></p>";
+if (isset($_SESSION['basket']) and count($_SESSION['basket'])>0)
+{
+    echo "<br><p class='updateInfo'><a href='clearbasket.php'>CLEAR BASKET</a></p>";
 
-echo "<br><p class='updateInfo'>New homteq Customer?<a href='signup.php'> Sign Up</a></p>";
-echo "<br><p class='updateInfo'>Already Have An Account?<a href='login.php'> Login</a></p>";
+    if (isset($_SESSION['userid']))
+    {
+        echo "<p class='updateInfo'><a href=checkout.php>CHECKOUT</a></p>";
+    }
+    else
+    {
+        echo "<br><p class='updateInfo'>New homteq Customer?<a href='signup.php'> Sign Up</a></p>";
+        echo "<br><p class='updateInfo'>Already Have An Account?<a href='login.php'> Login</a></p>";
+    }
+}
+
+
 
 
 include("footfile.html"); //include head layout

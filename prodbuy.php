@@ -1,14 +1,15 @@
 <?php
+session_start();
 include("db.php");
-$pagename="A Smart Buy For a Smart Home";       //Create and populate a variable called $pagename
-echo "<link rel=stylesheet type=text/css href=mystylesheet.css>";       //Call in stylesheet
-echo "<title>".$pagename."</title>";        //display name of the page as window title
+$pagename="A Smart Buy For a Smart Home";
+echo "<link rel=stylesheet type=text/css href=mystylesheet.css>";
+echo "<title>".$pagename."</title>";
 echo "<body>";
-include ("headfile.html");      //include header layout file
-echo "<h4>".$pagename."</h4>";      //display name of the page on the web page
+include ("headfile.html");
+include ("detectlogin.php");
+echo "<h4>".$pagename."</h4>"; 
 // retrieve the product id passed from the previous page using the GET method and the $_GET super global variable
 // applied to the query string u_prodid_id
-// store the value in a local variable called $prodid
 $prodid=$_GET['u_prod_id'];
 
 // display the value of the product id for debugging purposes

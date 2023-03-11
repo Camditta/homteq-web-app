@@ -1,11 +1,13 @@
 <?php
-$pagename="homteq: cloud controlled tech for your home";       //Create and populate a variable called $pagename
-echo "<link rel=stylesheet type=text/css href=mystylesheet.css>";       //Call in stylesheet
-echo "<title>".$pagename."</title>";        //display name of the page as window title
+session_start();
+$pagename="homteq: cloud controlled tech for your home";
+echo "<link rel=stylesheet type=text/css href=mystylesheet.css>";
+echo "<title>".$pagename."</title>";
 echo "<body>";
-include ("headfile.html");      //include header layout file
-echo "<h4>".$pagename."</h4>";      //display name of the page on the web page
-//display random text
+include ("headfile.html");  
+include ("detectlogin.php");
+echo "<h4>".$pagename."</h4>";  
+
 echo
 "<p class='updateInfo'> 
     homteq is a highly-specialised online retailer that offers a wide range of devices at the most competitive prices
@@ -38,6 +40,6 @@ echo
     Because virtual assistants live in a speaker with a microphone, they’re present in your home whenever you need them.
     Whatever smart tech you are after, homteq has it on offer!
 </p>";
-include("footfile.html"); //include head layout
+include("footfile.html");
 echo "</body>";
 ?>
